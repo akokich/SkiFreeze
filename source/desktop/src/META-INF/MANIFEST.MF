@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Class-Path: lwjgl_util-2.9.2.jar lwjgl-platform-2.9.2-natives-linux.ja
+ r lwjgl-2.9.2.jar jorbis-0.0.17.jar jinput-platform-2.0.5-natives-osx
+ .jar gdx-backend-lwjgl-1.5.4.jar gdx-platform-1.5.4-natives-desktop.j
+ ar jinput-2.0.5.jar jutils-1.0.0.jar gdx-box2d-1.5.4.jar gdx-1.5.4.ja
+ r jlayer-1.0.1-gdx.jar jinput-platform-2.0.5-natives-linux.jar jinput
+ -platform-2.0.5-natives-windows.jar lwjgl-platform-2.9.2-natives-osx.
+ jar gdx-box2d-platform-1.5.4-natives-desktop.jar lwjgl-platform-2.9.2
+ -natives-windows.jar
+Main-Class: com.akx2.skifreeze.desktop.DesktopLauncher
+

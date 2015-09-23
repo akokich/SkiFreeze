@@ -1,0 +1,5 @@
+C:\Users\Aaron\Documents\skifreeze\android\build\intermediates\classes\release
+C:\Users\Aaron\Documents\skifreeze\android\build\intermediates\pre-dexed\release\core-1.0-010f69f70b4f296192e2690d609e812120ea11d2.jar
+C:\Users\Aaron\Documents\skifreeze\android\build\intermediates\pre-dexed\release\gdx-box2d-1.5.4-f9036b372d41151dd2d82e7dab00aeef0dc91aea.jar
+C:\Users\Aaron\Documents\skifreeze\android\build\intermediates\pre-dexed\release\gdx-backend-android-1.5.4-4f188b984c24a2723d81ae546fa335d3cd836de1.jar
+C:\Users\Aaron\Documents\skifreeze\android\build\intermediates\pre-dexed\release\gdx-1.5.4-5356127b791aa989eb3b06a52945b7c754325c38.jar

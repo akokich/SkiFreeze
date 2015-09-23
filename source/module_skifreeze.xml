@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_skifreeze" default="compile.module.skifreeze">
+  <dirname property="module.skifreeze.basedir" file="${ant.file.module_skifreeze}"/>
+  
+  <property name="module.jdk.home.skifreeze" value="${jdk.home.1.8}"/>
+  <property name="module.jdk.bin.skifreeze" value="${jdk.bin.1.8}"/>
+  <property name="module.jdk.classpath.skifreeze" value="jdk.classpath.1.8"/>
+  
+  <property name="compiler.args.skifreeze" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="skifreeze.output.dir" value="${module.skifreeze.basedir}/build/classes/production/skifreeze"/>
+  <property name="skifreeze.testoutput.dir" value="${module.skifreeze.basedir}/build/classes/test/skifreeze"/>
+  
+  <path id="skifreeze.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="skifreeze.module.production.classpath">
+    <path refid="${module.jdk.classpath.skifreeze}"/>
+  </path>
+  
+  <path id="skifreeze.runtime.production.module.classpath">
+    <pathelement location="${skifreeze.output.dir}"/>
+  </path>
+  
+  <path id="skifreeze.module.classpath">
+    <path refid="${module.jdk.classpath.skifreeze}"/>
+    <pathelement location="${skifreeze.output.dir}"/>
+  </path>
+  
+  <path id="skifreeze.runtime.module.classpath">
+    <pathelement location="${skifreeze.testoutput.dir}"/>
+    <pathelement location="${skifreeze.output.dir}"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.skifreeze">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.skifreeze">
+    <patternset refid="excluded.from.module.skifreeze"/>
+  </patternset>
+  
+  
+  <target name="compile.module.skifreeze" depends="compile.module.skifreeze.production,compile.module.skifreeze.tests" description="Compile module skifreeze"/>
+  
+  <target name="compile.module.skifreeze.production" depends="register.custom.compilers" description="Compile module skifreeze; production classes"/>
+  
+  <target name="compile.module.skifreeze.tests" depends="register.custom.compilers,compile.module.skifreeze.production" description="compile module skifreeze; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.skifreeze" description="cleanup module">
+    <delete dir="${skifreeze.output.dir}"/>
+    <delete dir="${skifreeze.testoutput.dir}"/>
+  </target>
+</project>

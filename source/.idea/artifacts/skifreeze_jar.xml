@@ -1,0 +1,29 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="skifreeze:jar">
+    <output-path>$PROJECT_DIR$/build/classes/artifacts/skifreeze_jar</output-path>
+    <root id="archive" name="skifreeze.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/android/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="desktop" />
+      <element id="library" level="project" name="gdx-backend-lwjgl-1.5.4" />
+      <element id="library" level="project" name="gdx-platform-1.5.4-natives-desktop" />
+      <element id="library" level="project" name="gdx-box2d-platform-1.5.4-natives-desktop" />
+      <element id="library" level="project" name="gdx-1.5.4" />
+      <element id="library" level="project" name="lwjgl-2.9.2" />
+      <element id="library" level="project" name="lwjgl_util-2.9.2" />
+      <element id="library" level="project" name="jlayer-1.0.1-gdx" />
+      <element id="library" level="project" name="jorbis-0.0.17" />
+      <element id="library" level="project" name="lwjgl-platform-2.9.2-natives-windows" />
+      <element id="library" level="project" name="lwjgl-platform-2.9.2-natives-linux" />
+      <element id="library" level="project" name="lwjgl-platform-2.9.2-natives-osx" />
+      <element id="library" level="project" name="jinput-2.0.5" />
+      <element id="library" level="project" name="jutils-1.0.0" />
+      <element id="library" level="project" name="jinput-platform-2.0.5-natives-linux" />
+      <element id="library" level="project" name="jinput-platform-2.0.5-natives-windows" />
+      <element id="library" level="project" name="jinput-platform-2.0.5-natives-osx" />
+      <element id="module-output" name="core" />
+      <element id="library" level="project" name="gdx-box2d-1.5.4" />
+    </root>
+  </artifact>
+</component>

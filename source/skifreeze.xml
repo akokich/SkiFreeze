@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="skifreeze" default="all">
+  
+  
+  <property file="skifreeze.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.zip"/>
+    <include name="*.apk"/>
+    <include name="*.war"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.swc"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.android_api_21_platform" value="C:/Program Files/Java/jdk1.8.0_31/bin"/>
+  <path id="jdk.classpath.android_api_21_platform">
+    <fileset dir="${jdk.home.android_api_21_platform}">
+      <include name="platforms/android-21/android.jar"/>
+      <include name="platforms/android-21/data/res"/>
+      <include name="tools/support/annotations.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.android_api_21_platform}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.android_api_21_platform}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.android_api_21_platform"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.gdx-1.5.4-sources.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.5.4/3bc504d7330fbbc432a0fa97e64ae118632d1a86/gdx-1.5.4-sources.jar"/>
+  </path>
+  
+  <path id="library.gdx-1.5.4.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.5.4/c16e1a0088ae7f0cac4a8d6595be32432e6069f4/gdx-1.5.4.jar"/>
+  </path>
+  
+  <path id="library.gdx-backend-android-1.5.4.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-android/1.5.4/7b974b501dc92361698a1f6251f9e7b308582c08/gdx-backend-android-1.5.4.jar"/>
+  </path>
+  
+  <path id="library.gdx-backend-gwt-1.5.4-sources.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.5.4/94020cade7fbcaea47ca338210e17a44d48645bc/gdx-backend-gwt-1.5.4-sources.jar"/>
+  </path>
+  
+  <path id="library.gdx-backend-gwt-1.5.4.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.5.4/8d008d0a45f30326539a6f69e6fd9829d62de989/gdx-backend-gwt-1.5.4.jar"/>
+  </path>
+  
+  <path id="library.gdx-backend-lwjgl-1.5.4.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-lwjgl/1.5.4/6bbdafa819266783697ef7a7393d1fea511c76d9/gdx-backend-lwjgl-1.5.4.jar"/>
+  </path>
+  
+  <path id="library.gdx-backend-robovm-1.5.4.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-robovm/1.5.4/efa63db006899c59c55e776ce254c2a455afc781/gdx-backend-robovm-1.5.4.jar"/>
+  </path>
+  
+  <path id="library.gdx-box2d-1.5.4-sources.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.5.4/fce96db46da0eea469508891af1af98d063f6fba/gdx-box2d-1.5.4-sources.jar"/>
+  </path>
+  
+  <path id="library.gdx-box2d-1.5.4.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.5.4/6b0e1e0ef1b4ee3010f4e55cceaa22ba9ace5cf2/gdx-box2d-1.5.4.jar"/>
+  </path>
+  
+  <path id="library.gdx-box2d-gwt-1.5.4-sources.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-gwt/1.5.4/e49758ee3e84c71a58c2556b5efc12e3051cb361/gdx-box2d-gwt-1.5.4-sources.jar"/>
+  </path>
+  
+  <path id="library.gdx-box2d-platform-1.5.4-natives-desktop.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-platform/1.5.4/a5772476b12c8e161443d990945507c6575a0ce9/gdx-box2d-platform-1.5.4-natives-desktop.jar"/>
+  </path>
+  
+  <path id="library.gdx-platform-1.5.4-natives-desktop.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-platform/1.5.4/59717180af429ddb0396ed5b6baabfd9a9e11752/gdx-platform-1.5.4-natives-desktop.jar"/>
+  </path>
+  
+  <path id="library.gwt-servlet-2.6.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.google.gwt/gwt-servlet/2.6.0/d1e40c23bf78192482ee76c93619a10b4ea649f7/gwt-servlet-2.6.0.jar"/>
+  </path>
+  
+  <path id="library.gwt-user-2.6.1.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.google.gwt/gwt-user/2.6.1/c078b1b8cc0281214b0eb458d2c283d039374fad/gwt-user-2.6.1.jar"/>
+  </path>
+  
+  <path id="library.jinput-2.0.5.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/net.java.jinput/jinput/2.0.5/39c7796b469a600f72380316f6b1f11db6c2c7c4/jinput-2.0.5.jar"/>
+  </path>
+  
+  <path id="library.jinput-platform-2.0.5-natives-linux.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/net.java.jinput/jinput-platform/2.0.5/7ff832a6eb9ab6a767f1ade2b548092d0fa64795/jinput-platform-2.0.5-natives-linux.jar"/>
+  </path>
+  
+  <path id="library.jinput-platform-2.0.5-natives-osx.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/net.java.jinput/jinput-platform/2.0.5/53f9c919f34d2ca9de8c51fc4e1e8282029a9232/jinput-platform-2.0.5-natives-osx.jar"/>
+  </path>
+  
+  <path id="library.jinput-platform-2.0.5-natives-windows.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/net.java.jinput/jinput-platform/2.0.5/385ee093e01f587f30ee1c8a2ee7d408fd732e16/jinput-platform-2.0.5-natives-windows.jar"/>
+  </path>
+  
+  <path id="library.jlayer-1.0.1-gdx.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.badlogicgames.jlayer/jlayer/1.0.1-gdx/7cca83cec5c1b2f011362f4d85aabd71a73b049d/jlayer-1.0.1-gdx.jar"/>
+  </path>
+  
+  <path id="library.jorbis-0.0.17.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.jcraft/jorbis/0.0.17/8872d22b293e8f5d7d56ff92be966e6dc28ebdc6/jorbis-0.0.17.jar"/>
+  </path>
+  
+  <path id="library.json-20090211.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.json/json/20090211/c183aa3a2a6250293808bba12262c8920ce5a51c/json-20090211.jar"/>
+  </path>
+  
+  <path id="library.jutils-1.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/net.java.jutils/jutils/1.0.0/e12fe1fda814bd348c1579329c86943d2cd3c6a6/jutils-1.0.0.jar"/>
+  </path>
+  
+  <path id="library.lwjgl-2.9.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl/2.9.2/a9d80fe5935c7a9149f6584d9777cfd471f65489/lwjgl-2.9.2.jar"/>
+  </path>
+  
+  <path id="library.lwjgl-platform-2.9.2-natives-linux.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl-platform/2.9.2/d276cdf61fe2b516c7b7f4aa1b8dea91dbdc8d56/lwjgl-platform-2.9.2-natives-linux.jar"/>
+  </path>
+  
+  <path id="library.lwjgl-platform-2.9.2-natives-osx.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl-platform/2.9.2/d55b46b40b40249d627a83a7f7f22649709d70c3/lwjgl-platform-2.9.2-natives-osx.jar"/>
+  </path>
+  
+  <path id="library.lwjgl-platform-2.9.2-natives-windows.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl-platform/2.9.2/510c7d317f5e9e700b9cfaac5fd38bdebf0702e0/lwjgl-platform-2.9.2-natives-windows.jar"/>
+  </path>
+  
+  <path id="library.lwjgl_util-2.9.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl_util/2.9.2/4b9e37300a87799856e0bd15ed81663cdb6b0947/lwjgl_util-2.9.2.jar"/>
+  </path>
+  
+  <path id="library.robovm-cocoatouch-1.0.0-beta-04.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.robovm/robovm-cocoatouch/1.0.0-beta-04/7ab90fc8435e50064224b8cd208266b82d46732e/robovm-cocoatouch-1.0.0-beta-04.jar"/>
+  </path>
+  
+  <path id="library.robovm-objc-1.0.0-beta-04.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.robovm/robovm-objc/1.0.0-beta-04/7d68b051f43910708522a318553fec6f7acc9701/robovm-objc-1.0.0-beta-04.jar"/>
+  </path>
+  
+  <path id="library.robovm-rt-1.0.0-beta-04.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.robovm/robovm-rt/1.0.0-beta-04/249f9ce4bc6571970393672b0016c3e4b97f64f8/robovm-rt-1.0.0-beta-04.jar"/>
+  </path>
+  
+  <path id="library.validation-api-1.0.0.ga-sources.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/7a561191db2203550fbfa40d534d4997624cd369/validation-api-1.0.0.GA-sources.jar"/>
+  </path>
+  
+  <path id="library.validation-api-1.0.0.ga.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/b6bd7f9d78f6fdaa3c37dae18a4bd298915f328e/validation-api-1.0.0.GA.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/core/module_core.xml"/>
+  
+  <import file="${basedir}/module_skifreeze.xml"/>
+  
+  <import file="${basedir}/android/module_android.xml"/>
+  
+  <import file="${basedir}/desktop/module_desktop.xml"/>
+  
+  <import file="${basedir}/html/module_html.xml"/>
+  
+  <import file="${basedir}/ios/module_ios.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.core, clean.module.skifreeze, clean.module.android, clean.module.desktop, clean.module.html, clean.module.ios" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.core, compile.module.skifreeze, compile.module.android, compile.module.desktop, compile.module.html, compile.module.ios" description="build all modules"/>
+  
+  <target name="all" depends="build.modules" description="build all"/>
+</project>

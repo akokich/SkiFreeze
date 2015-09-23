@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_ios" default="compile.module.ios">
+  <dirname property="module.ios.basedir" file="${ant.file.module_ios}"/>
+  
+  <property name="module.jdk.home.ios" value="${jdk.home.1.8}"/>
+  <property name="module.jdk.bin.ios" value="${jdk.bin.1.8}"/>
+  <property name="module.jdk.classpath.ios" value="jdk.classpath.1.8"/>
+  
+  <property name="compiler.args.ios" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+  
+  <property name="ios.output.dir" value="${module.ios.basedir}/build/classes/main"/>
+  <property name="ios.testoutput.dir" value="${module.ios.basedir}/build/classes/test"/>
+  
+  <path id="ios.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="ios.module.production.classpath">
+    <path refid="${module.jdk.classpath.ios}"/>
+    <pathelement location="${core.output.dir}"/>
+    <path refid="library.gdx-1.5.4.classpath"/>
+    <path refid="library.gdx-box2d-1.5.4.classpath"/>
+    <path refid="library.robovm-rt-1.0.0-beta-04.classpath"/>
+    <path refid="library.robovm-cocoatouch-1.0.0-beta-04.classpath"/>
+    <path refid="library.gdx-backend-robovm-1.5.4.classpath"/>
+    <path refid="library.robovm-objc-1.0.0-beta-04.classpath"/>
+  </path>
+  
+  <path id="ios.runtime.production.module.classpath">
+    <pathelement location="${ios.output.dir}"/>
+    <path refid="core.runtime.production.module.classpath"/>
+    <path refid="library.robovm-rt-1.0.0-beta-04.classpath"/>
+    <path refid="library.robovm-cocoatouch-1.0.0-beta-04.classpath"/>
+    <path refid="library.gdx-backend-robovm-1.5.4.classpath"/>
+    <path refid="library.gdx-1.5.4.classpath"/>
+    <path refid="library.robovm-objc-1.0.0-beta-04.classpath"/>
+  </path>
+  
+  <path id="ios.module.classpath">
+    <path refid="${module.jdk.classpath.ios}"/>
+    <pathelement location="${ios.output.dir}"/>
+    <pathelement location="${core.testoutput.dir}"/>
+    <pathelement location="${core.output.dir}"/>
+    <path refid="library.gdx-1.5.4.classpath"/>
+    <path refid="library.gdx-box2d-1.5.4.classpath"/>
+    <path refid="library.robovm-rt-1.0.0-beta-04.classpath"/>
+    <path refid="library.robovm-cocoatouch-1.0.0-beta-04.classpath"/>
+    <path refid="library.gdx-backend-robovm-1.5.4.classpath"/>
+    <path refid="library.robovm-objc-1.0.0-beta-04.classpath"/>
+  </path>
+  
+  <path id="ios.runtime.module.classpath">
+    <pathelement location="${ios.testoutput.dir}"/>
+    <pathelement location="${ios.output.dir}"/>
+    <path refid="core.runtime.module.classpath"/>
+    <path refid="library.robovm-rt-1.0.0-beta-04.classpath"/>
+    <path refid="library.robovm-cocoatouch-1.0.0-beta-04.classpath"/>
+    <path refid="library.gdx-backend-robovm-1.5.4.classpath"/>
+    <path refid="library.gdx-1.5.4.classpath"/>
+    <path refid="library.robovm-objc-1.0.0-beta-04.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.ios">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.ios">
+    <patternset refid="excluded.from.module.ios"/>
+  </patternset>
+  
+  <path id="ios.module.sourcepath">
+    <dirset dir="${module.ios.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.ios" depends="compile.module.ios.production,compile.module.ios.tests" description="Compile module ios"/>
+  
+  <target name="compile.module.ios.production" depends="register.custom.compilers,compile.module.core" description="Compile module ios; production classes">
+    <mkdir dir="${ios.output.dir}"/>
+    <javac2 destdir="${ios.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.ios}/javac">
+      <compilerarg line="${compiler.args.ios}"/>
+      <bootclasspath refid="ios.module.bootclasspath"/>
+      <classpath refid="ios.module.production.classpath"/>
+      <src refid="ios.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.ios"/>
+    </javac2>
+    
+    <copy todir="${ios.output.dir}">
+      <fileset dir="${module.ios.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.ios.tests" depends="register.custom.compilers,compile.module.ios.production" description="compile module ios; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.ios" description="cleanup module">
+    <delete dir="${ios.output.dir}"/>
+    <delete dir="${ios.testoutput.dir}"/>
+  </target>
+</project>

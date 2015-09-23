@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Aaron\Documents\skifreeze\core\build\libs\core-1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ccade15666bb8a86c5bc58a01f01a0e59f2f913f">
+        <dex dex="C:\Users\Aaron\Documents\skifreeze\android\build\intermediates\pre-dexed\debug\core-1.0-010f69f70b4f296192e2690d609e812120ea11d2.jar" />
+    </item>
+    <item
+        jar="C:\Users\Aaron\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.5.4\c16e1a0088ae7f0cac4a8d6595be32432e6069f4\gdx-1.5.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="c16e1a0088ae7f0cac4a8d6595be32432e6069f4">
+        <dex dex="C:\Users\Aaron\Documents\skifreeze\android\build\intermediates\pre-dexed\debug\gdx-1.5.4-5356127b791aa989eb3b06a52945b7c754325c38.jar" />
+    </item>
+    <item
+        jar="C:\Users\Aaron\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-box2d\1.5.4\6b0e1e0ef1b4ee3010f4e55cceaa22ba9ace5cf2\gdx-box2d-1.5.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6b0e1e0ef1b4ee3010f4e55cceaa22ba9ace5cf2">
+        <dex dex="C:\Users\Aaron\Documents\skifreeze\android\build\intermediates\pre-dexed\debug\gdx-box2d-1.5.4-f9036b372d41151dd2d82e7dab00aeef0dc91aea.jar" />
+    </item>
+    <item
+        jar="C:\Users\Aaron\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-android\1.5.4\7b974b501dc92361698a1f6251f9e7b308582c08\gdx-backend-android-1.5.4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7b974b501dc92361698a1f6251f9e7b308582c08">
+        <dex dex="C:\Users\Aaron\Documents\skifreeze\android\build\intermediates\pre-dexed\debug\gdx-backend-android-1.5.4-4f188b984c24a2723d81ae546fa335d3cd836de1.jar" />
+    </item>
+
+</items>
